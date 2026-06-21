@@ -44,6 +44,9 @@ export function hydrateEntries(rawEntries: Entry[]): Entry[] {
       time: entry.time,
       scores: entry.scores,
       note: entry.note,
+      observerLevel: entry.observerLevel ?? null,
+      observerNote: entry.observerNote ?? "",
+      duringMenstruation: entry.duringMenstruation ?? false,
     }),
   );
 }

@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from "react";
 import { DIMENSIONS } from "../constants";
-import { Entry, EntryInput, FatigueLevel, ScoreMap } from "../types";
+import { EntryInput, FatigueLevel, ScoreMap } from "../types";
 
 interface EntryFormProps {
   draft: EntryInput;
@@ -25,9 +25,21 @@ export function EntryForm({
 }: EntryFormProps) {
   function handleMetaChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = event.target;
+    const nextValue =
+      event.target instanceof HTMLInputElement && event.target.type === "checkbox"
+        ? event.target.checked
+        : value;
     onChange({
       ...draft,
-      [name]: value,
+      [name]: nextValue,
+    });
+  }
+
+  function handleObserverChange(event: ChangeEvent<HTMLSelectElement | HTMLTextAreaElement>) {
+    const { name, value } = event.target;
+    onChange({
+      ...draft,
+      [name]: name === "observerLevel" ? (value ? (value as FatigueLevel) : null) : value,
     });
   }
 
@@ -72,16 +84,36 @@ export function EntryForm({
         </label>
       </div>
 
+      <label className="inline-toggle">
+        <input
+          type="checkbox"
+          name="duringMenstruation"
+          checked={draft.duringMenstruation ?? false}
+          onChange={handleMetaChange}
+        />
+        <span>当前记录处于例假期间</span>
+      </label>
+
       <div className="dimensions">
+        <div className="scale-legend">
+          <span>左侧更稳</span>
+          <span>右侧更困难</span>
+        </div>
         {DIMENSIONS.map((dimension) => (
-          <section key={dimension.key} className="dimension-card">
+          <section key={dimension.key} className="dimension-row">
             <div className="dimension-heading">
               <h3>{dimension.label}</h3>
               <p>{dimension.weightLabel}</p>
             </div>
-            <div className="option-grid">
-              {dimension.options.map((option) => (
-                <label key={option.value} className="option-card">
+            <div className="option-strip" role="radiogroup" aria-label={dimension.label}>
+              {dimension.options.map((option, index) => (
+                <label
+                  key={option.value}
+                  className={`option-chip option-chip-${index} ${
+                    draft.scores[dimension.key] === option.value ? "is-selected" : ""
+                  }`}
+                  title={option.description}
+                >
                   <input
                     type="radio"
                     name={dimension.key}
@@ -90,7 +122,7 @@ export function EntryForm({
                     onChange={() => handleScoreChange(dimension.key, option.value)}
                   />
                   <strong>{option.label}</strong>
-                  <span>{option.description}</span>
+                  <span>{index === 0 ? "稳" : index === 1 ? "轻" : index === 2 ? "中" : "重"}</span>
                 </label>
               ))}
             </div>
@@ -108,6 +140,40 @@ export function EntryForm({
           placeholder="可选：补充此刻的触发因素、所在情境、刚发生的事或身体感觉"
         />
       </label>
+
+      <section className="observer-section">
+        <div className="dimension-heading">
+          <h3>身边人的补充评价</h3>
+          <p>可选：如果当时有人在场，可以补一个他评等级，和自评分开保存。</p>
+        </div>
+        <div className="meta-grid">
+          <label>
+            他评等级
+            <select name="observerLevel" value={draft.observerLevel ?? ""} onChange={handleObserverChange}>
+              <option value="">无</option>
+              <option value="N1">N1</option>
+              <option value="N2">N2</option>
+              <option value="N3">N3</option>
+              <option value="N4">N4</option>
+              <option value="N5">N5</option>
+              <option value="N6">N6</option>
+              <option value="N7">N7</option>
+              <option value="N8">N8</option>
+              <option value="N9">N9</option>
+            </select>
+          </label>
+          <label>
+            他评备注
+            <textarea
+              name="observerNote"
+              rows={3}
+              value={draft.observerNote ?? ""}
+              onChange={handleObserverChange}
+              placeholder="可选：比如“说话变慢”“看起来很累”“明显不想交流”"
+            />
+          </label>
+        </div>
+      </section>
 
       <div className="score-banner">
         <div>

@@ -14,14 +14,18 @@
         "motivation": 1
       },
       "note": "",
+      "observerLevel": null,
+      "observerNote": "",
+      "duringMenstruation": false,
       "totalScore": 11,
       "level": "N6",
       "reasonTags": [
-        "情绪低落重",
-        "睡眠恢复差"
+        "情绪下沉重",
+        "精神耗竭重"
       ]
     },
     {
+      "id": "b47c6f1a-7a2d-4c29-b367-c02ffaf2e50d",
       "date": "2026-06-21",
       "time": "09:50",
       "scores": {
@@ -33,11 +37,59 @@
         "motivation": 1
       },
       "note": "回想和父母之间的矛盾导致",
-      "id": "b47c6f1a-7a2d-4c29-b367-c02ffaf2e50d",
+      "observerLevel": null,
+      "observerNote": "",
+      "duringMenstruation": false,
       "totalScore": 11,
       "level": "N6",
       "reasonTags": [
-        "睡眠恢复差",
+        "精神耗竭重",
+        "身体疲惫重"
+      ]
+    },
+    {
+      "id": "15300bae-39ff-4ef6-9ecd-7286915e97e7",
+      "date": "2026-06-21",
+      "time": "12:19",
+      "scores": {
+        "sleepRecovery": 2,
+        "physicalFatigue": 3,
+        "activityTolerance": 2,
+        "lowMood": 2,
+        "cognitiveSlowing": 2,
+        "motivation": 3
+      },
+      "note": "",
+      "observerLevel": null,
+      "observerNote": "",
+      "duringMenstruation": false,
+      "totalScore": 14,
+      "level": "N8",
+      "reasonTags": [
+        "身体疲惫重",
+        "接触他人困难"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "time": "19:01",
+      "scores": {
+        "sleepRecovery": 0,
+        "physicalFatigue": 1,
+        "activityTolerance": 1,
+        "lowMood": 1,
+        "cognitiveSlowing": 2,
+        "motivation": 1
+      },
+      "note": "",
+      "observerLevel": "N5",
+      "observerNote": "有接近半小时的情绪低谷",
+      "duringMenstruation": true,
+      "id": "7c5f01d0-59c1-4e5a-b954-203a47be42c0",
+      "totalScore": 6,
+      "level": "N3",
+      "reasonTags": [
+        "头脑迟滞重",
         "身体疲惫重"
       ]
     }

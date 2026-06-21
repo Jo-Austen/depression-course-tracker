@@ -157,8 +157,22 @@ label {
   gap: 8px;
 }
 
+.inline-toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: #4f5f73;
+}
+
+.inline-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
 input[type="date"],
 input[type="time"],
+select,
 textarea {
   border: 1px solid rgba(29, 36, 51, 0.12);
   border-radius: 14px;
@@ -172,11 +186,23 @@ textarea {
   margin-bottom: 18px;
 }
 
-.dimension-card {
+.scale-legend {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  color: #667284;
+  font-size: 0.88rem;
+}
+
+.dimension-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.3fr);
+  gap: 16px;
+  align-items: center;
   border: 1px solid rgba(29, 36, 51, 0.08);
   background: rgba(255, 255, 255, 0.72);
   border-radius: 18px;
-  padding: 16px;
+  padding: 14px 16px;
 }
 
 .dimension-heading h3 {
@@ -184,37 +210,87 @@ textarea {
 }
 
 .dimension-heading p {
-  margin: 0 0 14px;
+  margin: 0;
   color: #5e6778;
 }
 
-.option-grid {
+.option-strip {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
-.option-card {
+.option-chip {
+  position: relative;
+  overflow: hidden;
   border: 1px solid rgba(29, 36, 51, 0.08);
   border-radius: 14px;
-  padding: 12px;
-  background: #fffdfb;
-  min-height: 112px;
+  padding: 12px 10px;
+  background: rgba(255, 253, 251, 0.95);
+  min-height: 74px;
+  justify-content: center;
+  text-align: center;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    background 160ms ease;
 }
 
-.option-card input {
-  margin-bottom: 10px;
+.option-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(130, 82, 96, 0.22);
 }
 
-.option-card strong,
-.option-card span {
+.option-chip input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.option-chip strong,
+.option-chip span {
   display: block;
 }
 
-.option-card span {
-  margin-top: 6px;
+.option-chip strong {
+  font-size: 0.92rem;
+}
+
+.option-chip span {
+  margin-top: 4px;
   color: #576174;
-  font-size: 0.93rem;
+  font-size: 0.84rem;
+}
+
+.option-chip-0.is-selected {
+  background: linear-gradient(135deg, #dff4e7, #9ad8ad);
+  border-color: #78b98f;
+  box-shadow: 0 10px 22px rgba(120, 185, 143, 0.18);
+}
+
+.option-chip-1.is-selected {
+  background: linear-gradient(135deg, #f6eed8, #e7c678);
+  border-color: #caa45b;
+  box-shadow: 0 10px 22px rgba(202, 164, 91, 0.18);
+}
+
+.option-chip-2.is-selected {
+  background: linear-gradient(135deg, #f7decd, #e3a06f);
+  border-color: #c88458;
+  box-shadow: 0 10px 22px rgba(200, 132, 88, 0.18);
+}
+
+.option-chip-3.is-selected {
+  background: linear-gradient(135deg, #f2d6d6, #d16b72);
+  border-color: #b7525d;
+  box-shadow: 0 10px 22px rgba(183, 82, 93, 0.2);
+}
+
+.option-chip.is-selected strong,
+.option-chip.is-selected span {
+  color: #1f2935;
 }
 
 .score-banner {
@@ -303,6 +379,49 @@ textarea {
   border-radius: 20px;
 }
 
+.chart-detail-card {
+  margin-top: 16px;
+  border: 1px solid rgba(29, 36, 51, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 16px;
+}
+
+.chart-detail-card h3 {
+  margin: 4px 0 0;
+}
+
+.chart-detail-list {
+  display: grid;
+  gap: 12px;
+}
+
+.chart-detail-item {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(247, 243, 236, 0.92);
+}
+
+.chart-detail-item p {
+  margin: 8px 0 0;
+  color: #536173;
+}
+
+.chart-detail-scores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
+  margin-top: 8px;
+  color: #415063;
+  font-size: 0.94rem;
+}
+
+.observer-section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(29, 36, 51, 0.08);
+}
+
 .info-card ul {
   padding-left: 18px;
   margin: 12px 0 0;
@@ -354,9 +473,20 @@ th {
     justify-content: flex-start;
   }
 
-  .option-grid,
   .score-banner,
   .meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dimension-row {
+    grid-template-columns: 1fr;
+  }
+
+  .option-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chart-detail-scores {
     grid-template-columns: 1fr;
   }
 }

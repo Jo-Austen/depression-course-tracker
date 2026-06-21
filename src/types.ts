@@ -40,6 +40,9 @@ export interface EntryInput {
   time: string;
   scores: ScoreMap;
   note?: string;
+  observerLevel?: FatigueLevel | null;
+  observerNote?: string;
+  duringMenstruation?: boolean;
 }
 
 export interface Entry extends EntryInput {

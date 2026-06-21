@@ -21,6 +21,9 @@ function makeEmptyDraft(): EntryInput {
     time: currentTime(),
     scores: createDefaultScores(),
     note: "",
+    observerLevel: null,
+    observerNote: "",
+    duringMenstruation: false,
   };
 }
 
@@ -92,6 +95,9 @@ export function App() {
       time: entry.time,
       scores: entry.scores,
       note: entry.note ?? "",
+      observerLevel: entry.observerLevel ?? null,
+      observerNote: entry.observerNote ?? "",
+      duringMenstruation: entry.duringMenstruation ?? false,
     });
     setStatus(`正在编辑 ${entry.date} ${entry.time} 的记录`);
   }
@@ -175,6 +181,11 @@ export function App() {
             <h2>记录此刻，不做总结</h2>
             <p>这张表优先记录“现在这一刻”的身心状态。像睡眠、工作负荷、刚发生的事，建议写进备注，而不是混进主评分里。</p>
           </div>
+          <div className="card info-card">
+            <p className="eyebrow">补充视角</p>
+            <h2>允许独立他评</h2>
+            <p>如果当时有家人、伴侣或朋友在场，可以补一个独立的他评等级。它不会改动主评分，但会单独显示在记录表和图表里。</p>
+          </div>
         </div>
       </section>
 
@@ -184,9 +195,9 @@ export function App() {
             <p className="eyebrow">每日汇总病程</p>
             <h2>倒置疲劳病程图</h2>
           </div>
-          <p className="chart-caption">时间从左到右推进，疲劳越重曲线越向下。</p>
+          <p className="chart-caption">每天只占一个 X 轴点位；同一天的多次记录会在该点位垂直堆叠，点击点位可查看各项评分，橙色菱形表示身边人的他评，例假期间的点位会显示为红色。</p>
         </div>
-        <CandlestickChart candles={workbookData.dailyCandles} />
+        <CandlestickChart candles={workbookData.dailyCandles} entries={workbookData.entries} />
       </section>
 
       <RecordTable entries={workbookData.entries} onEdit={handleEdit} onDelete={handleDelete} />
