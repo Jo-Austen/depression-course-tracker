@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "35b27469-3979-4adf-b7b9-5bc59e352390",
+      "date": "2026-06-20",
+      "time": "20:28",
+      "scores": {
+        "sleepRecovery": 2,
+        "physicalFatigue": 2,
+        "activityTolerance": 1,
+        "lowMood": 3,
+        "cognitiveSlowing": 2,
+        "motivation": 1
+      },
+      "note": "",
+      "totalScore": 11,
+      "level": "N6",
+      "reasonTags": [
+        "情绪低落重",
+        "睡眠恢复差"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "time": "09:50",
+      "scores": {
+        "sleepRecovery": 2,
+        "physicalFatigue": 2,
+        "activityTolerance": 2,
+        "lowMood": 2,
+        "cognitiveSlowing": 2,
+        "motivation": 1
+      },
+      "note": "回想和父母之间的矛盾导致",
+      "id": "b47c6f1a-7a2d-4c29-b367-c02ffaf2e50d",
+      "totalScore": 11,
+      "level": "N6",
+      "reasonTags": [
+        "睡眠恢复差",
+        "身体疲惫重"
+      ]
+    }
+  ]
+}
