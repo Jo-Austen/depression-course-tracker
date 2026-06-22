@@ -94,6 +94,7 @@
       ]
     },
     {
+      "id": "36d852aa-bd38-427a-a802-f98f22010163",
       "date": "2026-06-22",
       "time": "09:59",
       "scores": {
@@ -108,11 +109,33 @@
       "observerLevel": "N1",
       "observerNote": "",
       "duringMenstruation": true,
-      "id": "36d852aa-bd38-427a-a802-f98f22010163",
       "totalScore": 1,
       "level": "N1",
       "reasonTags": [
         "接触他人困难"
+      ]
+    },
+    {
+      "date": "2026-06-22",
+      "time": "19:58",
+      "scores": {
+        "sleepRecovery": 1,
+        "physicalFatigue": 1,
+        "activityTolerance": 1,
+        "lowMood": 1,
+        "cognitiveSlowing": 1,
+        "motivation": 1
+      },
+      "note": "",
+      "observerLevel": "N3",
+      "observerNote": "",
+      "duringMenstruation": false,
+      "id": "a36a46e6-6e4c-41d5-9ba4-191e90437bc8",
+      "totalScore": 6,
+      "level": "N3",
+      "reasonTags": [
+        "精神耗竭重",
+        "身体疲惫重"
       ]
     }
   ]
