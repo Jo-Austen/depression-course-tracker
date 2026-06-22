@@ -71,6 +71,7 @@
       ]
     },
     {
+      "id": "7c5f01d0-59c1-4e5a-b954-203a47be42c0",
       "date": "2026-06-21",
       "time": "19:01",
       "scores": {
@@ -85,12 +86,33 @@
       "observerLevel": "N5",
       "observerNote": "有接近半小时的情绪低谷",
       "duringMenstruation": true,
-      "id": "7c5f01d0-59c1-4e5a-b954-203a47be42c0",
       "totalScore": 6,
       "level": "N3",
       "reasonTags": [
         "头脑迟滞重",
         "身体疲惫重"
+      ]
+    },
+    {
+      "date": "2026-06-22",
+      "time": "09:59",
+      "scores": {
+        "sleepRecovery": 0,
+        "physicalFatigue": 0,
+        "activityTolerance": 0,
+        "lowMood": 0,
+        "cognitiveSlowing": 0,
+        "motivation": 1
+      },
+      "note": "",
+      "observerLevel": "N1",
+      "observerNote": "",
+      "duringMenstruation": true,
+      "id": "36d852aa-bd38-427a-a802-f98f22010163",
+      "totalScore": 1,
+      "level": "N1",
+      "reasonTags": [
+        "接触他人困难"
       ]
     }
   ]
